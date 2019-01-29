@@ -1,0 +1,5 @@
+* text=auto
+
+*.html diff=html
+*.css  diff=css
+*.scss diff=css

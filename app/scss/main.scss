@@ -22,6 +22,7 @@ body {
 
 a {
   color: white;
+  text-decoration: none;
 }
 
 .button {
@@ -298,7 +299,7 @@ header {
 
 .features {
   padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
 
   .container::after {
   	display: table;
@@ -310,7 +311,6 @@ header {
     position: relative;
     float: left;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     width: 300px;
     height: 123px;
@@ -338,6 +338,7 @@ header {
     }
 
     &-title {
+      margin-top: 0;
       font-size: 24px;
       line-height: 30px;
       text-transform: uppercase;
@@ -391,6 +392,7 @@ header {
       padding-left: 25px;
       background-color: rgba(0, 0, 0, 0.25);
       &-title {
+        margin-top: 0;
         font-size: 36px;
         text-transform: uppercase;
       }
@@ -602,6 +604,7 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 89px;
+    margin-top: 0;
     margin-bottom: 20px;
     padding-left: 28px;
     padding-right: 24px;
@@ -653,6 +656,7 @@ header {
   }
 
   .section-title {
+    margin-top: 0;
     margin-bottom: 20px;
     font-size: 30px;
   }
@@ -680,6 +684,7 @@ header {
       }
     }
     .service-title {
+      margin-top: 0;
       font-size: 36px;
       font-weight: normal;
       text-transform: uppercase;
@@ -765,6 +770,7 @@ header {
   }
 
   .section-title {
+    margin-top: 0;
     margin-bottom: 25px;
     font-size: 30px;
     font-weight: normal;
@@ -999,3 +1005,5 @@ footer {
 .overflow-hidden {
   overflow: hidden;
 }
+
+

@@ -347,3 +347,52 @@ template {
 [hidden] {
   display: none;
 }
+
+
+/*////////////////*/
+/*CUSTOM IMPROVES*/
+/*////////////////*/
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+dd {
+  margin-bottom: .5rem;
+  margin-left: 0;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5em;
+}
+
+[hidden] {
+  display: none !important;
+}

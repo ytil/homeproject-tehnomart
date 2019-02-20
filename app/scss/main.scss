@@ -1,5 +1,7 @@
 @import "catalog";
+
 @import "fonts";
+
 @import "slider";
 
 *,
@@ -51,7 +53,6 @@ header {
     padding-left: 230px;
   }
 
-
   .company-logo {
     position: absolute;
     top: 0;
@@ -64,9 +65,11 @@ header {
     text-transform: uppercase;
     background-color: #ee3643;
     border-bottom: 5px solid #b52933;
+
     &:hover {
       background-color: #ca2c37;
     }
+
     &:active {
       background-color: #ba2732;
     }
@@ -78,6 +81,7 @@ header {
     justify-content: flex-start;
     align-items: center;
     width: 280px;
+
     &:hover {
       background-color: #212a3a;
     }
@@ -99,13 +103,16 @@ header {
       color: white;
       background-color: rgba(0, 0, 0, 0);
       border: none;
+
       &:focus {
         outline: none;
         background-color: white;
         color: black;
+
         ~ label {
           color: black;
         }
+
         ~ .icon * {
           fill: #ee3643;
         }
@@ -129,6 +136,7 @@ header {
 
     &:hover {
       background-color: #212a3a;
+
       .icon * {
         fill: white;
       }
@@ -150,10 +158,12 @@ header {
 
     &:hover {
       background-color: #212a3a;
+
       .icon * {
         fill: white;
       }
     }
+
     &:active {
       background: #161d29;
     }
@@ -167,9 +177,11 @@ header {
     height: 42px;
     margin-left: auto;
     background: #63a63e;
+
     &:hover {
       background-color: #5fbb2d;
     }
+
     &:active {
       background-color: #518534;
     }
@@ -177,6 +189,7 @@ header {
 }
 
 .header-middle {
+
   &.container {
     display: flex;
     justify-content: space-between;
@@ -210,13 +223,14 @@ header {
       line-height: 21px;
       color: #ee3643;
       border: 3px solid white;
+
       &::before {
         position: absolute;
         left: 15px;
         width: 19px;
         height: 19px;
-        content: '';
-        background: url('../img/svg/icon-phone.svg');
+        content: "";
+        background: url("../img/svg/icon-phone.svg");
       }
     }
 
@@ -246,12 +260,13 @@ header {
       width: 120px;
       margin-right: 10px;
       padding-left: 45px;
+
       &::before {
         position: absolute;
         left: 15px;
         width: 20px;
         height: 17px;
-        content: '';
+        content: "";
         background: url("../img/svg/icon-login.svg");
       }
     }
@@ -285,9 +300,11 @@ header {
         font-size: 17px;
         background: #32425c;
         border-bottom: 5px solid #293449;
+
         &:hover {
           background-color: #293449;
         }
+
         &:active {
           color: #777d88;
           background-color: #1d2739;
@@ -302,9 +319,9 @@ header {
   padding-bottom: 30px;
 
   .container::after {
-  	display: table;
-  	content: '';
-  	clear: both;
+    display: table;
+    content: "";
+    clear: both;
   }
 
   .card {
@@ -321,17 +338,21 @@ header {
       margin-right: 20px;
       background: #ffbf47;
     }
+
     &.card-2 {
       margin-right: 20px;
       background: #3bbce3;
     }
+
     &.card-3 {
       background: #dc91d8;
     }
+
     &.card-4 {
       margin-left: 20px;
       background: #8ed78f;
     }
+
     &.card-5 {
       margin-left: 20px;
       background: #ffc047;
@@ -351,6 +372,7 @@ header {
       width: 140px;
       height: inherit;
       display: flex;
+
       img {
         margin: auto;
       }
@@ -364,13 +386,15 @@ header {
       height: 38px;
       font-size: 14px;
       text-transform: uppercase;
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, .1);
       border-radius: 2px;
+
       &:hover {
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 0, .2);
       }
+
       &:active {
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, .3);
       }
     }
   }
@@ -390,12 +414,14 @@ header {
       height: 105px;
       padding-top: 20px;
       padding-left: 25px;
-      background-color: rgba(0, 0, 0, 0.25);
+      background-color: rgba(0, 0, 0, .25);
+
       &-title {
         margin-top: 0;
         font-size: 36px;
         text-transform: uppercase;
       }
+
       &-description {
         font-size: 18px;
       }
@@ -410,7 +436,8 @@ header {
       z-index: 100;
     }
 
-    #prev, #next {
+    #prev,
+    #next {
       display: flex;
       width: 22px;
       height: 40px;
@@ -422,22 +449,21 @@ header {
       position: absolute;
       top: 114px;
       left: 25px;
-      background: url('../img/svg/icon-left.svg') no-repeat;
+      background: url("../img/svg/icon-left.svg") no-repeat;
     }
 
     #next {
       position: absolute;
       top: 114px;
       right: 25px;
-      background: url('../img/svg/icon-right.svg') no-repeat;
+      background: url("../img/svg/icon-right.svg") no-repeat;
     }
-
 
     .control-panel {
       position: absolute;
       bottom: 20px;
       left: 50%;
-      display: flex;   
+      display: flex;
       z-index: 1000;
 
       .control-element {
@@ -447,6 +473,7 @@ header {
         background-color: white;
         border-radius: 50%;
         transition: opacity 1s;
+
         &.active {
           background-color: indianred;
         }
@@ -479,10 +506,11 @@ header {
     font-size: 16px;
     line-height: 20px;
     border: 1px solid #eaeaea;
-    
+
     &:hover {
       border: none;
-      box-shadow: 0 0 30px 0 rgba(50, 50, 50, 0.75);
+      box-shadow: 0 0 30px 0 rgba(50, 50, 50, .75);
+
       .photo {
         visibility: hidden;
       }
@@ -491,23 +519,24 @@ header {
         visibility: visible;
       }
     }
-	
-  	.photo {
-  		position: absolute;
-  		top: 25%;
-  		left: 50%;
-  		transform: translate(-50%, -50%);
-  		z-index: -1;
-  	}
-      
+
+    .photo {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
     .hover-buttons {
-    	position: absolute;
+      position: absolute;
       top: 0;
       margin-top: 45px;
       visibility: hidden;
     }
 
-    .to-cart, .add-to-bookmarks {
+    .to-cart,
+    .add-to-bookmarks {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -524,13 +553,16 @@ header {
       background-color: #63a63e;
       border-bottom: 3px solid #367315;
       border-radius: 2px;
+
       &:hover {
         background-color: #5fbb2d;
+
         .icon * {
           fill: white;
           fill-opacity: 1;
         }
       }
+
       &:active {
         background-color: #518534;
       }
@@ -538,7 +570,7 @@ header {
       .icon {
         position: absolute;
         left: 11px;
-        fill-opacity: 0.3;
+        fill-opacity: .3;
       }
     }
 
@@ -546,9 +578,11 @@ header {
       color: #32425c;
       border: 3px solid #63a63e;
       border-radius: 2px;
+
       &:hover {
         border-color: #32425c;
       }
+
       &:active {
         color: #c1c6ce;
         border-color: #c1c6ce;
@@ -585,11 +619,12 @@ header {
   right: 0;
   width: 60px;
   height: 59px;
-  content: '';
-  background-image: url('../img/new-flag.png');
+  content: "";
+  background-image: url("../img/new-flag.png");
 }
 
 .popular {
+
   .container {
     display: flex;
     flex-direction: column;
@@ -637,9 +672,10 @@ header {
       height: 145px;
       margin-bottom: 20px;
       border: 1px solid #eaeaea;
+
       &:hover {
         border: none;
-        box-shadow: 0 0 30px 0 rgba(50, 50, 50, 0.75);
+        box-shadow: 0 0 30px 0 rgba(50, 50, 50, .75);
       }
     }
   }
@@ -673,16 +709,20 @@ header {
     margin-left: 320px;
 
     .slide {
+
       &:nth-of-type(1) {
         background: url("../img/service-1-icon.png") no-repeat bottom right;
       }
+
       &:nth-of-type(2) {
         background: url("../img/service-2-icon.png") no-repeat bottom right;
       }
+
       &:nth-of-type(3) {
         background: url("../img/service-3-icon.png") no-repeat bottom right;
       }
     }
+
     .service-title {
       margin-top: 0;
       font-size: 36px;
@@ -696,7 +736,6 @@ header {
       font-size: 13px;
       line-height: 24px;
     }
-
 
     .to-order-credit {
       position: absolute;
@@ -719,6 +758,7 @@ header {
       padding: 0;
       list-style: none;
       z-index: 1000;
+
       .control-element {
         flex-grow: 1;
         display: flex;
@@ -731,9 +771,11 @@ header {
         background-color: #32425c;
         transition: opacity 1s;
         cursor: pointer;
+
         &:not(:last-child) {
           border-bottom: 1px solid #4d637b;
         }
+
         &.active {
           color: #32425c;
           background-color: white;
@@ -747,8 +789,8 @@ header {
       right: 0;
       width: 10px;
       height: 272px;
-      content: '';
-      background-image: url('../img/service-menu-right-bottom.png');
+      content: "";
+      background-image: url("../img/service-menu-right-bottom.png");
     }
   }
 }
@@ -801,7 +843,7 @@ header {
     width: 300px;
 
     .minimap:hover {
-      box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.75);
+      box-shadow: 0 0 10px 0 rgba(50, 50, 50, .75);
     }
 
     .write-us {
@@ -937,13 +979,15 @@ footer {
         }
 
         &:nth-of-type(1) > a {
-          background-image: url('../img/svg/icon-vk.svg');
+          background-image: url("../img/svg/icon-vk.svg");
         }
-        &:nth-of-type(2) > a{
-          background-image: url('../img/svg/icon-fb.svg');
+
+        &:nth-of-type(2) > a {
+          background-image: url("../img/svg/icon-fb.svg");
         }
+
         &:nth-of-type(3) > a {
-          background-image: url('../img/svg/icon-insta.svg');
+          background-image: url("../img/svg/icon-insta.svg");
         }
       }
     }
@@ -969,7 +1013,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, .2);
   z-index: 9000;
 }
 
@@ -1005,5 +1049,3 @@ footer {
 .overflow-hidden {
   overflow: hidden;
 }
-
-

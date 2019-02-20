@@ -13,5 +13,10 @@
     "gulp-connect": "^5.7.0",
     "gulp-sass": "^4.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "stylelint": "^9.10.1",
+    "stylelint-config-airbnb": "^0.0.0",
+    "stylelint-order": "^2.0.0",
+    "stylelint-scss": "^3.5.3"
+  }
 }

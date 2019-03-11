@@ -76,12 +76,10 @@ function Sl(options) {
     dots = document.body.querySelectorAll(
       `${slider} ${options.dotsPanelClassName} ${options.dotClassName}`
     );
-    console.log(dots);
 
     dots.forEach((dot, dotIndex) => {
       dot.addEventListener("click", () => {
         changeSlide(false, false, dotIndex);
-        console.log(dotIndex);
       });
     });
   }

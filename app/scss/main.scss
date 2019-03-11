@@ -436,8 +436,8 @@ header {
       z-index: 100;
     }
 
-    #prev,
-    #next {
+    .prev,
+    .next {
       display: flex;
       width: 22px;
       height: 40px;
@@ -445,14 +445,14 @@ header {
       z-index: 1000;
     }
 
-    #prev {
+    .prev {
       position: absolute;
       top: 114px;
       left: 25px;
       background: url("../img/svg/icon-left.svg") no-repeat;
     }
 
-    #next {
+    .next {
       position: absolute;
       top: 114px;
       right: 25px;

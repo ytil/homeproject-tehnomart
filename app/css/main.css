@@ -617,19 +617,19 @@ header {
       width: 195px;
       height: 38px;
       z-index: 100; }
-    .features .slider-1 #prev,
-    .features .slider-1 #next {
+    .features .slider-1 .prev,
+    .features .slider-1 .next {
       display: flex;
       width: 22px;
       height: 40px;
       font-size: 0;
       z-index: 1000; }
-    .features .slider-1 #prev {
+    .features .slider-1 .prev {
       position: absolute;
       top: 114px;
       left: 25px;
       background: url("../img/svg/icon-left.svg") no-repeat; }
-    .features .slider-1 #next {
+    .features .slider-1 .next {
       position: absolute;
       top: 114px;
       right: 25px;

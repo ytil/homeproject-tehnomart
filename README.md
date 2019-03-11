@@ -2,6 +2,6 @@
 
 сверстаны 2 страницы, переход ко второй после нажатия ссылки ("Открыть каталог")
 
-реализованы 2 слайдера с помощью самописной библиотеки https://github.com/ytil/simpleSlider
+реализованы 2 слайдера с помощью собственной библиотеки https://github.com/ytil/simpleSlider
 
 хостинг: https://ytil.github.io/homeproject-tehnomart/

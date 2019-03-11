@@ -1,122 +1,91 @@
-// simple slider by Dmitry Ivannikov
-
-/* Структура HTML:
- * <div class="slider sliderName">
- *   <div class="slide"></div>
- *   <div class="slide"></div>
- *   <div class="slide"></div>
- *
- *   <a href="#" id="prev"></a> // При необходимости
- *   <a href="#" id="next"></a> // При необходимости
- *
- *   <div class="control-panel"> // При необходимости
- *     <a class="control-element" href="#">*</a>
- *     <a class="control-element" href="#">*</a>
- *   </div>
- * </div>
- *
- * Базовые стили: css/slider.css
- *
- * Доступные опции:
- * var options = {
- *  'sliderName': 'slider-1',
- *  'pauseOnHover': true,
- *  'stopOnClick': true,
- *  'autoplayInterval': 5000,
- *  'arrows': true,
- *  'prevButtonId': 'prev',
- *  'nextButtonId': 'next',
- *  'dots': true
- *};
- *
- * Подключение и запуск:
- * let slider = new Sl(options);
- * slider.start();
- *
- * */
+// const options = {
+//   'sliderClassName': '.slider-1',
+//   'slideClassName': '.slide',
+//   'pauseOnHover': true,
+//   'stopOnClick': true,
+//   'autoplayInterval': 5000,
+//   'dots': true,
+//   'dotsPanelClassName':'.control-panel',
+//   'dotClassName': '.dot',
+//   'arrows': true,
+//   'prevButtonClassName': '.prev',
+//   'nextButtonClassName': '.next'
+//   'slideDidChanged: 'function' //  callback when slide did changed
+// };
 
 function Sl(options) {
   "use strict";
 
-  const sliderName = options.sliderName;
-  const allSliderElements = document.querySelectorAll(`.${sliderName} *`);
-  const slides = document.querySelectorAll(`.${sliderName} .slide`);
+  const slider = options.sliderClassName;
+  const slide = options.slideClassName;
+  const slides = document.querySelectorAll(`${slider} ${slide}`);
+  const allSliderElements = document.querySelectorAll(`${slider} *`);
+  const slideDidChanged = options.slideDidChanged || null;
 
-  let prevButton, nextButton, dots;
-  let currentSlide = 0;
+  let dots, prev, next;
+
   let timerId = null;
-
   let isPaused = true;
   let isStopped = true;
 
+  const state = {
+    slide: 0,
+    set currentSlide(num) {
+      this.slide = num;
+      slideDidChanged && slideDidChanged(num);
+    },
+    get currentSlide() {
+      return this.slide;
+    }
+  };
 
-  const changeSlide = function(pause = isPaused, stop = isStopped, goTo) {
+  function changeSlide(pause = isPaused, stop = isStopped, goTo = "next") {
     if (pause || stop) {
       return;
     }
 
-    slides[currentSlide].classList.remove('showing');
-    dots[currentSlide].classList.remove('active');
-    currentSlide = (goTo === undefined)
-      ? (currentSlide + 1) % slides.length
-      : goTo;
-    slides[currentSlide].classList.add('showing');
-    dots[currentSlide].classList.add('active');
-  };
+    slides[state.slide].classList.remove("showing");
+    dots[state.slide].classList.remove("active");
 
-  const previousSlide = function() {
-    let previous = currentSlide !== 0 ? currentSlide - 1 : slides.length - 1;
-    changeSlide(false, false, previous);
-  };
-
-  // pause autoplay when the mouse is over the slider
-  const pauseOnHover = function() {
-    allSliderElements.forEach((elem) => {
-      elem.addEventListener('mouseover', () => {
-        isPaused = true;
-      });
-
-      elem.addEventListener('mouseout', () => {
-        isPaused = false;
-      });
-    });
-  };
-
-  // stop autoplay when mouse click on slider-elemnt
-  const stopOnClick = function() {
-    allSliderElements.forEach((elem) => {
-      elem.addEventListener('click', () => {
-        isStopped = true;
-      });
-    });
-  };
-
-  // control elements
-  const arrowsActions = function() {
-    prevButton.addEventListener('click', () => {
-      previousSlide();
-    });
-
-    nextButton.addEventListener('click', () => {
-      changeSlide(false, false);
-    });
-  };
-  const dotsActions = function() {
-    dots.forEach((dot, dotIndex) => {
-      dot.addEventListener('click', () => {
-        changeSlide(false, false, dotIndex);
-      });
-    });
-  };
-
-  function autoplay() {
-    if (timerId) {
-      changeSlide();
-      timerId = setTimeout(autoplay, options.autoplayInterval);
+    if (goTo === "next") {
+      state.currentSlide = (state.slide + 1) % slides.length;
+    } else if (goTo === "previous") {
+      state.currentSlide =
+        state.slide !== 0 ? state.slide !== 0 : slides.length - 1;
+    } else {
+      state.currentSlide = goTo;
     }
+
+    slides[state.slide].classList.add("showing");
+    dots[state.slide].classList.add("active");
   }
 
-  // actions listeners
+  if (options.arrows) {
+    prev = document.querySelector(options.prevButtonClassName);
+    prev.addEventListener("click", () => {
+      changeSlide(false, false, "previous");
+    });
+
+    next = document.querySelector(options.nextButtonClassName);
+    next.addEventListener("click", () => {
+      changeSlide(false, false, "next");
+    });
+  }
+
+  if (options.dots) {
+    dots = document.body.querySelectorAll(
+      `${slider} ${options.dotsPanelClassName} ${options.dotClassName}`
+    );
+    console.log(dots);
+
+    dots.forEach((dot, dotIndex) => {
+      dot.addEventListener("click", () => {
+        changeSlide(false, false, dotIndex);
+        console.log(dotIndex);
+      });
+    });
+  }
+
   if (options.pauseOnHover) {
     pauseOnHover();
   }
@@ -125,15 +94,33 @@ function Sl(options) {
     stopOnClick();
   }
 
-  if (options.arrows) {
-    prevButton = document.getElementById(options.prevButtonId);
-    nextButton = document.getElementById(options.nextButtonId);
-    arrowsActions();
+  function pauseOnHover() {
+    allSliderElements.forEach(elem => {
+      elem.addEventListener("mouseover", () => {
+        isPaused = true;
+      });
+
+      elem.addEventListener("mouseout", () => {
+        isPaused = false;
+      });
+    });
   }
 
-  if (options.dots) {
-    dots = document.body.querySelectorAll(`.${sliderName} .control-panel > *`);
-    dotsActions();
+  function stopOnClick() {
+    allSliderElements.forEach(elem => {
+      elem.addEventListener("click", () => {
+        isStopped = true;
+      });
+    });
+  }
+
+  function autoplay() {
+    if (timerId) {
+      timerId = setTimeout(function() {
+        changeSlide();
+        autoplay();
+      }, options.autoplayInterval);
+    }
   }
 
   this.start = function() {
@@ -150,5 +137,9 @@ function Sl(options) {
     isPaused = true;
     isStopped = true;
     timerId = null;
+  };
+
+  this.currentSlide = function() {
+    return state.currentSlide;
   };
 }

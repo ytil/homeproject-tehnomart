@@ -6,7 +6,7 @@ gulp.task('html', function() {
   return gulp.src('./app/*.html')
     .pipe(connect.reload());
 });
-//
+
 gulp.task('css', function() {
   return gulp.src('./app/**/*.css')
     .pipe(connect.reload());

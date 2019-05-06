@@ -373,6 +373,7 @@ a {
     align-items: center;
     width: 135px;
     height: 38px;
+    margin-top: auto;
     font-size: 14px;
     text-transform: uppercase;
     color: white;
@@ -622,6 +623,7 @@ a {
   line-height: 20px;
   font-weight: bold;
   text-align: center;
+  white-space: pre;
 }
 
 .product__old-price {
